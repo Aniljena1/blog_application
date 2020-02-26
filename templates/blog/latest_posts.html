@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lastest Posts</title>
+</head>
+
+<body style="background-color: greenyellow">
+
+{% extends 'blog/base.html' %}
+{% block content %}
+
+  <h1>Recent Posts are :</h1>
+
+  {% for latest_post in latest_posts %}
+      <ol>
+        <li>Posted by - {{ latest_post.author}}</li>  <!-- 05 : 42 , Fri 03 Jan 2020 -->
+        <li>Posted date - {{ latest_post.date_posted|date:'h : i , D d M Y' }}</li>
+        <li>Title of Post - {{ latest_post.title }}</li>
+        <li> Content of Post - {{ latest_post.content }}</li>
+      </ol>
+      <hr>
+  {% endfor %}
+{% endblock %}
+</body>
+</html>
